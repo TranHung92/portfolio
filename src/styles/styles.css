@@ -74,6 +74,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    /*overflow: auto;*/
     transform: translate3d(0, 100vh, 0);
     transition: transform .1s cubic-bezier(.56,.3,0,1);
     z-index: 1000;

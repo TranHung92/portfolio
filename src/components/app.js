@@ -13,9 +13,9 @@ class App extends Component {
 		};
 	}
 
-	onClick () {
+	onClick (e) {
 		this.setState({ visible: !this.state.visible });
-		// e.stopPropagation();
+		e.stopPropagation();
 		// console.log('visible', this.state.visible)
 	}
 
@@ -24,10 +24,6 @@ class App extends Component {
 		return (
       <div>
       	<MenuButton onClick={this.onClick.bind(this)} />
-      	<Background 
-      		visibleState={this.state.visible} 
-					onClick={this.onClick.bind(this)}
-      	/>
 				<Menu 
 					visibleState={this.state.visible}
 					onClick={this.onClick.bind(this)}

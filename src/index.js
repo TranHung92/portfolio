@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import ReallySmoothScroll from 'really-smooth-scroll';
 
 import App from './components/app';
 import HomePage from './components/HomePage';
