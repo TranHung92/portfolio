@@ -22,6 +22,8 @@ export default class Menu extends Component {
 						>
 					  <h2><Link to="/home">Home</Link></h2>
 					  <h2><Link to="/about">About</Link></h2>
+					  <h2><Link to="/projects">Projects</Link></h2>
+
 					</div>	
 				)}			
 			</Motion>

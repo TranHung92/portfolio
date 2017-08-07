@@ -4,6 +4,9 @@ import MenuButton from './MenuButton'
 import PageContent from './PageContent'
 import Menu from './Menu'
 import Background from './Background'
+import ReallySmoothScroll from 'really-smooth-scroll';
+
+// ReallySmoothScroll.shim();
 
 class App extends Component {
 	constructor() {

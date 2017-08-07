@@ -1,22 +1,19 @@
 import { Motion, spring } from 'react-motion';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ReallySmoothScroll from 'really-smooth-scroll';
 
 import Background from './Background'
 import MenuButton from './MenuButton'
 import Menu from './Menu'
-
+import ReallySmoothScroll from 'really-smooth-scroll';
 // ReallySmoothScroll.shim();
-// ReallySmoothScroll.config({
-//   mousewheelSensitivity: 6, // Default
-//   keydownSensitivity: 6 // Default (When you press arrow down/up key)
-// });
+var windowHeight = window.innerHeight;
+
 class HomePage extends Component {
 	constructor() {
 		super();
 		this.state = { 
-			HomeHeight: 200,
+			HomeHeight: window.innerHeight * 2,
 			BackgroundHeight: 100,
 			visible: false
 		}
@@ -25,36 +22,28 @@ class HomePage extends Component {
 	onClick (e) {
 		this.setState({ visible: !this.state.visible });
 		e.stopPropagation();
-		// console.log('visible', this.state.visible)
 	}
 
 	onWheel (e) {
-		// this.setState({
-		// 	HomeHeight: e.deltaY > 0 ? this.state.HomeHeight - 10 : this.state.HomeHeight + 10
-		// })
 		const deltaY = e.wheelDeltaY;
-		// if (deltaY > 4) {
-		// 	this.setState({ HomeHeight: this.state.HomeHeight - 10 })
-		// } 
-		// if (deltaY < 4) {
-		// 	if (deltaY < 0) {
-		// 		this.setState({ HomeHeight: this.state.HomeHeight + 10 })
-		// 	}
-		// }
 		if (deltaY > 0) {
 			if (deltaY > 100) {
-				this.setState({ HomeHeight: this.state.HomeHeight + 10 })
+				this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 10 : 0 })
 			} else {
-				this.setState({ HomeHeight: this.state.HomeHeight + 1 })
+				this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 100 : 0 })
 			}
 		} else {
 			if (deltaY < -100) {
-				this.setState({ HomeHeight: this.state.HomeHeight - 10 })
+				this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 10 })
 			} else {
-				this.setState({ HomeHeight: this.state.HomeHeight - 1 })
+				this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 100 })
 			}
 		}
-		console.log('wheel', e)
+		console.log('wheel', window)
+	}
+
+	onTouch(e) {
+		console.log('touch', e.changedTouches[0])
 	}
 
 	componentDidMount() {
@@ -62,6 +51,7 @@ class HomePage extends Component {
 			HomeHeight: 0, 
 			BackgroundHeight: -100
 		})
+		window.addEventListener('touchmove', this.onTouch.bind(this))
 		window.addEventListener('wheel', this.onWheel.bind(this))
 	}
 
@@ -70,13 +60,14 @@ class HomePage extends Component {
 	}
 
 	render() {
+		// console.log('window', window.screenX)
 		return (
 			<div>
 				<Motion style={{ x: spring(this.state.HomeHeight) }}>
 					{ ({ x }) => (
 						<div
 							id='homePage'
-							style={{ transform: "translate3d(0, " + x + "vh, 0)" }}
+							style={{ transform: "translate3d(0, " + x + "px, 0)" }}
 							>
 							<MenuButton onClick={this.onClick.bind(this)} />
 							<Menu 
@@ -90,8 +81,7 @@ class HomePage extends Component {
 					)}			
 				</Motion>	
 				<Background height={this.state.BackgroundHeight} />			
-			</div>
-
+			</div>				
 		)
 	}
 }

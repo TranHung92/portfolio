@@ -5169,6 +5169,10 @@ react-scripts@1.0.10:
   optionalDependencies:
     fsevents "1.1.2"
 
+react-smooth-scroll@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-smooth-scroll/-/react-smooth-scroll-0.1.0.tgz#ae74b4381f50b983f2b082ce8879db83f33df2c2"
+
 react-transition-group@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-1.2.0.tgz#b51fc921b0c3835a7ef7c571c79fc82c73e9204f"
