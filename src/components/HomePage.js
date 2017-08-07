@@ -1,19 +1,22 @@
 import { Motion, spring } from 'react-motion';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as actions from '../actions';
 
 import Background from './Background'
 import MenuButton from './MenuButton'
 import Menu from './Menu'
-import ReallySmoothScroll from 'really-smooth-scroll';
-// ReallySmoothScroll.shim();
+
 var windowHeight = window.innerHeight;
 
 class HomePage extends Component {
 	constructor() {
 		super();
 		this.state = { 
-			HomeHeight: window.innerHeight * 2,
+			HomeHeight: windowHeight * 2,
 			BackgroundHeight: 100,
 			visible: false
 		}
@@ -39,41 +42,37 @@ class HomePage extends Component {
 				this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 100 })
 			}
 		}
-		console.log('wheel', window)
+		// console.log('wheel', window)
 	}
 
-	onTouch(e) {
-		console.log('touch', e.changedTouches[0])
-	}
 
 	componentDidMount() {
 		this.setState({ 
 			HomeHeight: 0, 
 			BackgroundHeight: -100
 		})
-		window.addEventListener('touchmove', this.onTouch.bind(this))
+		// window.addEventListener('touchmove', this.onTouch.bind(this))
 		window.addEventListener('wheel', this.onWheel.bind(this))
+		setTimeout(this.props.hideMenu, 800)
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('wheel', this.onWheel.bind(this))
+		// setTimeout(this.props.hideMenu(), 1000)
 	}
 
 	render() {
-		// console.log('window', window.screenX)
+
+		console.log('params', this.props)
 		return (
 			<div>
+				<h1>hello</h1>
 				<Motion style={{ x: spring(this.state.HomeHeight) }}>
 					{ ({ x }) => (
 						<div
 							id='homePage'
 							style={{ transform: "translate3d(0, " + x + "px, 0)" }}
 							>
-							<MenuButton onClick={this.onClick.bind(this)} />
-							<Menu 
-								visibleState={this.state.visible}
-								onClick={this.onClick.bind(this)}
-							/>
 							<h1>HomePage</h1>
 							<img style={{ marginTop: '100px'}} src={require('../assets/myself.jpg')} alt=""/>
 							<img style={{ marginTop: '100px'}} src={require('../assets/myself.jpg')} alt=""/>
@@ -86,4 +85,11 @@ class HomePage extends Component {
 	}
 }
 
-export default HomePage;
+function mapDispatchToProps(dispatch) {
+	return {
+		getParams: bindActionCreators(actions.getParams, dispatch),
+		hideMenu: bindActionCreators(actions.hideMenu, dispatch)
+	}
+}
+
+export default connect(null, mapDispatchToProps)(HomePage);

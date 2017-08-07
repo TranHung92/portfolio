@@ -1,29 +1,33 @@
-import React, { Component } from 'react'
-import ReactSmoothScrol from 'react-smooth-scroll';
-import ReallySmoothScroll from 'really-smooth-scroll';
-// ReallySmoothScroll.shim();
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as actions from '../actions';
 
 class AboutPage extends Component {
 	constructor() {
 		super()
 	}
-	onScroll(e) {
-		console.log('scroll')
-	}
+
 
 	componentDidMount() {
-		window.onscroll = function() { console.log('scroll'); };
+		this.props.getParams(this.props.location.pathname)
 	}
 
 	render() {
 		return (
-				<div id='aboutPage' onScroll={this.onScroll.bind(this)}>
+				<div id='aboutPage'>
 					<img style={{ marginTop: '200px'}} src={require('../assets/myself.jpg')} alt=""/>
 					<img style={{ marginTop: '200px'}} src={require('../assets/myself.jpg')} alt=""/>			
-					<button onClick={this.onScroll.bind(this)} >hit me</button>	
 				</div>				
 		)
 	}
 }
 
-export default AboutPage;
+function mapDispatchToProps(dispatch) {
+	return {
+		getParams: bindActionCreators(actions.getParams, dispatch)
+	}
+}
+
+export default connect(null, mapDispatchToProps)(AboutPage);

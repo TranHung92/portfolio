@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import MenuButton from './MenuButton'
 import PageContent from './PageContent'
 import Menu from './Menu'
-import Background from './Background'
-import ReallySmoothScroll from 'really-smooth-scroll';
+import HomePage from './HomePage'
 
-// ReallySmoothScroll.shim();
+import * as actions from '../actions'
 
 class App extends Component {
 	constructor() {
@@ -17,24 +18,36 @@ class App extends Component {
 	}
 
 	onClick (e) {
-		this.setState({ visible: !this.state.visible });
+		this.props.toggleMenu(this.props.visible);
 		e.stopPropagation();
-		// console.log('visible', this.state.visible)
+		this.props.resetMenu();
 	}
 
 	render() {
-
+		console.log(this.props.zIndex)
 		return (
       <div>
       	<MenuButton onClick={this.onClick.bind(this)} />
 				<Menu 
-					visibleState={this.state.visible}
-					onClick={this.onClick.bind(this)}
+					visibleState={this.props.visible}
+					// onClick={this.onClick.bind(this)}
 				/>
-      	<PageContent />
       </div>
 		)
 	}
 }
 
-export default App;
+function mapDispatchToProps(dispatch) {
+	return {
+		resetMenu: bindActionCreators(actions.resetMenuIndex, dispatch),
+		toggleMenu: bindActionCreators(actions.toggleMenu, dispatch)
+	}
+}
+
+function mapStateToProps(state) {
+	return {
+		visible: state.menu.visible
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
