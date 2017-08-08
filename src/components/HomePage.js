@@ -10,6 +10,7 @@ import Background from './Background'
 import MenuButton from './MenuButton'
 import Menu from './Menu'
 import Title from './homePage/title'
+import Image1 from './homePage/image1'
 
 var windowHeight = window.innerHeight;
 
@@ -30,19 +31,22 @@ class HomePage extends Component {
 
 	onWheel (e) {
 		const deltaY = e.wheelDeltaY;
-		if (deltaY > 0) {
-			if (deltaY > 100) {
-				this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 10 : 0 })
+		if (this.refs.myRef) {
+			if (deltaY > 0) {
+				if (deltaY > 100) {
+					this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 10 : 0 })
+				} else {
+					this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 100 : 0 })
+				}
 			} else {
-				this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 100 : 0 })
-			}
-		} else {
-			if (deltaY < -100) {
-				this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 10 })
-			} else {
-				this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 100 })
-			}
+				if (deltaY < -100) {
+					this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 10 })
+				} else {
+					this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 100 })
+				}
+			}			
 		}
+
 		// console.log('wheel', window)
 	}
 
@@ -69,8 +73,9 @@ class HomePage extends Component {
 		}
 		console.log('params', this.props)
 		return (
-			<div>
+			<div id="homePage" ref="myRef">
 				<Title height={this.state.HomeHeight} />
+				<Image1 height={this.state.HomeHeight} />
 				<Background height={this.state.BackgroundHeight} />			
 			</div>				
 		)

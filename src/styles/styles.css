@@ -77,7 +77,7 @@ body {
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: 100px;
+    top: 0;
     left: 0;
     /*overflow: auto;*/
     transform: translate3d(0, 0vh, 0);
