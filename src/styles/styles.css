@@ -39,7 +39,7 @@ body {
 #flyoutMenu {
     width: 100vw;
     height: 100vh;
-    background-color: red;
+    background-color: #00ffd2;
     position: fixed;
     top: 0;
     left: 0;
@@ -69,12 +69,15 @@ body {
     z-index: 100;
 }
 
+#home-page {
+    z-index: 100;
+}
 #homePage {
     background-color: #EEE;
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: 0;
+    top: 100px;
     left: 0;
     /*overflow: auto;*/
     transform: translate3d(0, 0vh, 0);

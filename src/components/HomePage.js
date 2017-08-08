@@ -9,6 +9,7 @@ import * as actions from '../actions';
 import Background from './Background'
 import MenuButton from './MenuButton'
 import Menu from './Menu'
+import Title from './homePage/title'
 
 var windowHeight = window.innerHeight;
 
@@ -16,7 +17,7 @@ class HomePage extends Component {
 	constructor() {
 		super();
 		this.state = { 
-			HomeHeight: windowHeight * 2,
+			HomeHeight: windowHeight,
 			BackgroundHeight: 100,
 			visible: false
 		}
@@ -62,23 +63,14 @@ class HomePage extends Component {
 	}
 
 	render() {
-
+		const style = {
+			zIndex: 10000,
+			// position: 'fixed'
+		}
 		console.log('params', this.props)
 		return (
 			<div>
-				<h1>hello</h1>
-				<Motion style={{ x: spring(this.state.HomeHeight) }}>
-					{ ({ x }) => (
-						<div
-							id='homePage'
-							style={{ transform: "translate3d(0, " + x + "px, 0)" }}
-							>
-							<h1>HomePage</h1>
-							<img style={{ marginTop: '100px'}} src={require('../assets/myself.jpg')} alt=""/>
-							<img style={{ marginTop: '100px'}} src={require('../assets/myself.jpg')} alt=""/>
-						</div>	
-					)}			
-				</Motion>	
+				<Title height={this.state.HomeHeight} />
 				<Background height={this.state.BackgroundHeight} />			
 			</div>				
 		)
