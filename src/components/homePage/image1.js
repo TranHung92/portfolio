@@ -3,7 +3,11 @@ import { Motion, spring } from 'react-motion';
 
 import '../../styles/homePage/image1.css'
 class Image1 extends Component {
+
+
 	render() {
+
+
 		return (
 			<div>
 				<Motion style={{ x: spring(this.props.height) }}>
@@ -12,7 +16,10 @@ class Image1 extends Component {
 							id="home-image1"
 							style={{ transform: "translate3d(0, " + x + "px, 0)" }}
 							>
-							<img style={{ marginTop: '200px'}} src={require('../../assets/myself.jpg')} alt=""/>
+							<div id="image1">
+								<img style={{ transform: "translate3d(0, " + x/(-8) + "px, 0)" }} src={require('../../assets/myself.jpg')} alt=""/>
+
+							</div>
 						</div>	
 					)}			
 				</Motion>					

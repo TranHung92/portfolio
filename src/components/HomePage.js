@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
 
-import App from './app'
 import Background from './Background'
 import MenuButton from './MenuButton'
 import Menu from './Menu'
@@ -35,15 +34,15 @@ class HomePage extends Component {
 		if (this.refs.myRef) {
 			if (deltaY > 0) {
 				if (deltaY > 100) {
-					this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 10 : 0 })
+					this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 20 : 0 })
 				} else {
-					this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 100 : 0 })
+					this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 150 : 0 })
 				}
 			} else {
 				if (deltaY < -100) {
-					this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 10 })
+					this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 20 })
 				} else {
-					this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 100 })
+					this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 150 })
 				}
 			}			
 		}

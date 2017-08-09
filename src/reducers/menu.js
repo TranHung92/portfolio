@@ -21,7 +21,7 @@ export default function(state = initialState, action) {
 		case TOGGLE_MENU:
 			return { ...state, visible: action.payload }
 		case SET_Z_INDEX:
-			return { ...state, zIndex: 100 }
+			return { ...state, zIndex: 50 }
 		case RESET_Z_INDEX:
 			return { ...state, zIndex: 1000 }
 		default:

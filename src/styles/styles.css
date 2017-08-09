@@ -71,14 +71,14 @@ body {
     left: 0;
     transform: translate3d(0, 100vh, 0);
     transition: transform .1s cubic-bezier(.56,.3,0,1);
-    z-index: 2000!important;
+    z-index: 10!important;
 }
 
 
 #homePage {
     background-color: #EEE;
     width: 100vw;
-    height: 100vh;
+/*    height: 100vh;*/
     position: fixed;
     top: 0;
     left: 0;
