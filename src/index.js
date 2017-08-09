@@ -7,10 +7,17 @@ import App from './components/app';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ProjectsPage from './components/ProjectsPage';
-
+import FirstProject from './components/projectsPage/project-1';
 import configureStore from './store';
 
 import './styles/styles.css';
+
+import {
+	homeUrl,
+	aboutUrl,
+	projectsUrl,
+	firstProjectUrl,
+} from './constants'
 
 const store = configureStore();
 console.log('index', this)
@@ -20,9 +27,10 @@ ReactDOM.render(
 			<div>
 				<App />
 				<Switch>
-					<Route path='/home' component={HomePage} />
-					<Route path='/about' component={AboutPage} />
-		 			<Route path='/' component={ProjectsPage} />
+					<Route path={homeUrl} component={HomePage} />
+					<Route path={aboutUrl} component={AboutPage} />
+		 			<Route path={projectsUrl} component={ProjectsPage} />
+		 			<Route path={firstProjectUrl} component={FirstProject} />
 				</Switch>			
 			</div>
 

@@ -1,3 +1,5 @@
-export const homeRoute = '/home';
-export const aboutRoute = '/about';
-export const projectsRoute = '/projects';
+export const homeUrl = '/home';
+export const aboutUrl = '/about';
+export const projectsUrl = '/projects';
+
+export const firstProjectUrl = '/projs/firstproject';

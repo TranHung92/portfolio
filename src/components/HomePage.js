@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 
 import * as actions from '../actions';
 
@@ -11,6 +12,9 @@ import MenuButton from './MenuButton'
 import Menu from './Menu'
 import Title from './homePage/title'
 import Image1 from './homePage/image1'
+import {
+	firstProjectUrl
+} from '../constants'
 
 var windowHeight = window.innerHeight;
 
@@ -76,7 +80,9 @@ class HomePage extends Component {
 		return (
 			<div id="homePage" ref="myRef">
 				<Title height={this.state.HomeHeight} />
-				<Image1 height={this.state.HomeHeight} />					
+				<Link to={firstProjectUrl}>
+					<Image1 height={this.state.HomeHeight} />									
+				</Link>
 				<Background height={this.state.BackgroundHeight} />			
 			</div>				
 		)

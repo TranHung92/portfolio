@@ -7,9 +7,9 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 
 import {
-	homeRoute,
-	aboutRoute,
-	projectsRoute
+	homeUrl,
+	aboutUrl,
+	projectsUrl
 } from '../constants'
 
 
@@ -41,24 +41,24 @@ class Menu extends Component {
 						<div id="menuSelection">
 						  <h1>
 						  	<Link 
-						  		to={homeRoute}
-						  		onClick={ currentPage !== homeRoute ? setMenuIndex : toggleMenu }
+						  		to={homeUrl}
+						  		onClick={ currentPage !== homeUrl ? setMenuIndex : toggleMenu }
 						  	>
 						  		Home
 						  	</Link>
 						  </h1>
 						  <h1>
 						  	<Link 
-						  		to={aboutRoute}
-						  		onClick={ currentPage !== aboutRoute ? setMenuIndex : toggleMenu }
+						  		to={aboutUrl}
+						  		onClick={ currentPage !== aboutUrl ? setMenuIndex : toggleMenu }
 						  	>
 						  		About
 						  	</Link>
 						  </h1>
 						  <h1>
 						  	<Link 
-						  		to={projectsRoute}
-						  		onClick={ currentPage !== projectsRoute ? setMenuIndex : toggleMenu }
+						  		to={projectsUrl}
+						  		onClick={ currentPage !== projectsUrl ? setMenuIndex : toggleMenu }
 						  	>
 						  		Projects
 						  	</Link>
