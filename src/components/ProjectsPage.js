@@ -5,6 +5,10 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 
 class ProjectsPage extends Component {
+	componentDidMount() {
+		this.props.getParams(this.props.location.pathname);
+	}
+
 	render() {
 		return (
 			<h1>ProjectsPage</h1>

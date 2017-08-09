@@ -10,4 +10,5 @@
   transform: translate3d(0, 0vh, 0);
   transition: transform .1s cubic-bezier(.56,.3,0,1);
   z-index: 100;
+  display: flex;
 }

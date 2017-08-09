@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
 
+import App from './app'
 import Background from './Background'
 import MenuButton from './MenuButton'
 import Menu from './Menu'
@@ -59,6 +60,7 @@ class HomePage extends Component {
 		// window.addEventListener('touchmove', this.onTouch.bind(this))
 		window.addEventListener('wheel', this.onWheel.bind(this))
 		setTimeout(this.props.hideMenu, 800)
+		this.props.getParams(this.props.location.pathname);
 	}
 
 	componentWillUnmount() {
@@ -75,7 +77,7 @@ class HomePage extends Component {
 		return (
 			<div id="homePage" ref="myRef">
 				<Title height={this.state.HomeHeight} />
-				<Image1 height={this.state.HomeHeight} />
+				<Image1 height={this.state.HomeHeight} />					
 				<Background height={this.state.BackgroundHeight} />			
 			</div>				
 		)

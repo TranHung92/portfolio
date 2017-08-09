@@ -38,16 +38,32 @@ class Menu extends Component {
 							zIndex: zIndex
 						}}
 						>
-					  <h2 onClick={setMenuIndex}>
-					  	<Link to={homeRoute}>Home</Link>
-					  </h2>
-					  <h2 onClick={setMenuIndex}>
-					  	<Link to={aboutRoute}>About</Link>
-					  </h2>
-					  <h2 onClick={setMenuIndex}>
-					  	<Link to={projectsRoute}>Projects</Link>
-					  </h2>
-
+						<div id="menuSelection">
+						  <h1>
+						  	<Link 
+						  		to={homeRoute}
+						  		onClick={ currentPage !== homeRoute ? setMenuIndex : toggleMenu }
+						  	>
+						  		Home
+						  	</Link>
+						  </h1>
+						  <h1>
+						  	<Link 
+						  		to={aboutRoute}
+						  		onClick={ currentPage !== aboutRoute ? setMenuIndex : toggleMenu }
+						  	>
+						  		About
+						  	</Link>
+						  </h1>
+						  <h1>
+						  	<Link 
+						  		to={projectsRoute}
+						  		onClick={ currentPage !== projectsRoute ? setMenuIndex : toggleMenu }
+						  	>
+						  		Projects
+						  	</Link>
+						  </h1>
+						</div>
 					</div>	
 				)}			
 			</Motion>

@@ -47,13 +47,18 @@ body {
     transition: transform .1s cubic-bezier(.56,.3,0,1);
     /*z-index: 1000;*/
 }
-#flyoutMenu h2 a {
-    color: #333;
-    margin-left: 15px;
+#flyoutMenu h1 a {
+    color: #fff;
+    margin-left: 100px;
     text-decoration: none;
+        font-size: -webkit-xxx-large;
 }
 
-#flyoutMenu h2 a:hover {
+#menuSelection {
+    margin-top: 100px;
+}
+
+#flyoutMenu h1 a:hover {
     text-decoration: underline;
 }
 
@@ -66,12 +71,10 @@ body {
     left: 0;
     transform: translate3d(0, 100vh, 0);
     transition: transform .1s cubic-bezier(.56,.3,0,1);
-    z-index: 100;
+    z-index: 2000!important;
 }
 
-#home-page {
-    z-index: 100;
-}
+
 #homePage {
     background-color: #EEE;
     width: 100vw;
@@ -79,12 +82,5 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    /*overflow: auto;*/
-    transform: translate3d(0, 0vh, 0);
-    transition: transform .1s cubic-bezier(.56,.3,0,1);
     z-index: 100;
-}
-
-#aboutPage {
-    overflow: auto;
 }

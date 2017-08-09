@@ -18,7 +18,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<div>
-			<App />
+				<App />
 				<Switch>
 					<Route path='/home' component={HomePage} />
 					<Route path='/about' component={AboutPage} />
