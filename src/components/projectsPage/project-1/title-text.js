@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { Motion, spring } from 'react-motion';
 
-import '../../styles/homePage/title.css'
-class Title extends Component {
+class TitleText extends Component {
 	render() {
 		return (
 			<div>
-				<Motion style={{ x: spring(this.props.height, {stiffness: 300, damping: 39}) }}>
+				<Motion style={{ x: spring(this.props.height, {stiffness: 170, damping: 26}) }}>
 					{ ({ x }) => (
 						<div
-							id="home-title"
+							id="title-text"
 							style={{ transform: "translate3d(0, " + x + "px, 0)" }}
 							>
 							<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta delectus dolorum natus</h1>
@@ -22,4 +21,4 @@ class Title extends Component {
 	}
 }
 
-export default Title;
+export default TitleText;

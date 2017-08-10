@@ -50,8 +50,6 @@ class HomePage extends Component {
 				}
 			}			
 		}
-
-		// console.log('wheel', window)
 	}
 
 
@@ -68,7 +66,6 @@ class HomePage extends Component {
 
 	componentWillUnmount() {
 		window.removeEventListener('wheel', this.onWheel.bind(this))
-		// setTimeout(this.props.hideMenu(), 1000)
 	}
 
 	render() {

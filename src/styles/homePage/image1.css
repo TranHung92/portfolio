@@ -28,14 +28,14 @@
 #image1 img {
   position: absolute;
   max-height: 150%;
-  filter:  invert(2);
+  filter:  grayscale(100%);
   transform: translate3d(0, 0vh, 0);
-  transition: max-height .3s, filter 1.5s, transform .1s cubic-bezier(1,1,0,0);
+  transition: max-height .3s, filter 1.5s cubic-bezier(.56,.33,.32,.87), transform .1s cubic-bezier(1,1,0,0);
 }
 
 
 #image1 img:hover {
-  filter: grayscale(100%);
+  filter: grayscale(0);
   transform: translate3d(0, 0vh, 0);
   max-height: 170%
 }

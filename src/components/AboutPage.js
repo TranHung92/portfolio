@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import ReallySmoothScroll from 'really-smooth-scroll';
 
 import * as actions from '../actions';
+// ReallySmoothScroll.shim();
 
 class AboutPage extends Component {
 	constructor() {
@@ -17,7 +18,7 @@ class AboutPage extends Component {
 
 	render() {
 		return (
-				<div id='aboutPage'>
+				<div style={{overflow: 'hidden'}} id='aboutPage'>
 					<img style={{ marginTop: '200px'}} src={require('../assets/myself.jpg')} alt=""/>
 					<img style={{ marginTop: '200px'}} src={require('../assets/myself.jpg')} alt=""/>			
 				</div>				

@@ -10,7 +10,7 @@ class Image1 extends Component {
 
 		return (
 			<div>
-				<Motion style={{ x: spring(this.props.height) }}>
+				<Motion style={{ x: spring(this.props.height, {stiffness: 300, damping: 39}) }}>
 					{ ({ x }) => (
 						<div
 							id="home-image1"
