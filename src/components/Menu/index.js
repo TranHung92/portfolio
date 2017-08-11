@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import MenuButton from './MenuButton'
-import PageContent from './PageContent'
-import Menu from './Menu'
-import HomePage from './HomePage'
+import MenuList from './MenuList'
 
-import * as actions from '../actions'
+import * as actions from '../../actions'
 
-class App extends Component {
+class Menu extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -28,9 +26,8 @@ class App extends Component {
 		return (
       <div>
       	<MenuButton onClick={this.onClick.bind(this)} />
-				<Menu 
+				<MenuList 
 					visibleState={this.props.visible}
-					// onClick={this.onClick.bind(this)}
 				/>
       </div>
 		)
@@ -50,4 +47,4 @@ function mapStateToProps(state) {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

@@ -1,16 +1,12 @@
-import { Motion, spring } from 'react-motion';
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
-import Background from './Background'
-import MenuButton from './MenuButton'
-import Menu from './Menu'
-import Title from './homePage/title'
-import Image1 from './homePage/image1'
+import Slider from '../Slider'
+import Title from './title'
+import Image1 from './image1'
 
 
 var windowHeight = window.innerHeight;
@@ -20,7 +16,7 @@ class HomePage extends Component {
 		super();
 		this.state = { 
 			HomeHeight: windowHeight,
-			BackgroundHeight: 100,
+			SliderHeight: 100,
 			visible: false
 		}
 	}
@@ -45,9 +41,8 @@ class HomePage extends Component {
 	componentDidMount() {
 		this.setState({ 
 			HomeHeight: 0, 
-			BackgroundHeight: -100
+			SliderHeight: -100
 		})
-		// window.addEventListener('touchmove', this.onTouch.bind(this))
 		window.addEventListener('wheel', this.onWheel.bind(this))
 		setTimeout(this.props.hideMenu, 800)
 		this.props.getParams(this.props.location.pathname);
@@ -58,16 +53,11 @@ class HomePage extends Component {
 	}
 
 	render() {
-		const style = {
-			zIndex: 10000,
-			// position: 'fixed'
-		}
-		console.log('params', this.props)
 		return (
-			<div id="homePage" ref="myRef">
+			<div id="project" ref="myRef">
 				<Title height={this.state.HomeHeight} />
 				<Image1 height={this.state.HomeHeight} />									
-				<Background height={this.state.BackgroundHeight} />			
+				<Slider height={this.state.SliderHeight} />			
 			</div>				
 		)
 	}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Motion, spring } from 'react-motion';
 
-class TitleText extends Component {
+class Text extends Component {
 	render() {
 		return (
 			<div>
@@ -21,4 +21,4 @@ class TitleText extends Component {
 	}
 }
 
-export default TitleText;
+export default Text;

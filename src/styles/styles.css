@@ -64,7 +64,7 @@ body {
     text-decoration: underline;
 }
 
-#background {
+#slider {
     background-color: #00ffd2;
     width: 100vw;
     height: 100vh;
@@ -72,7 +72,7 @@ body {
     top: 0;
     left: 0;
     transform: translate3d(0, 100vh, 0);
-    transition: transform .1s cubic-bezier(1,1,0,0);
+    transition: transform .2s cubic-bezier(1,1,0,0);
     z-index: 1000!important;
 }
 

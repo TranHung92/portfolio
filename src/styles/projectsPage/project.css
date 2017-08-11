@@ -1,9 +1,11 @@
-#project-1 {
+#project {
 	display: flex;
 	flex-direction: column;
+	transform: translate3d(0, 0vh, 0);
+  transition: transform .02s cubic-bezier(1,1,0,0);
 }
 
-#title-image {
+#background {
 	height: 100vh;
 	width: 100vw;
 	top: 0;
@@ -15,28 +17,26 @@
   justify-content: center;
   align-items: center;
   transform: translate3d(0, 0vh, 0);
-  transition: transform .1s cubic-bezier(1,1,0,0);
+  transition: transform .02s cubic-bezier(1,1,0,0);
 }
 
-#title-image img {
+#background img {
 	filter: grayscale(100%) brightness(20%) blur(1px);
 	position: absolute;
 	width: 130vw;
 	/*width: 100vw;*/
 	/*max-height: 200%;*/
   transform: translate3d(0, 0px, 0);
-  transition: transform .1s cubic-bezier(1,1,0,0);
+  transition: transform .02s cubic-bezier(1,1,0,0);
 }
 
 #title-text {
-  background-color: #EEE;
   position: fixed;
   color: white;
-  padding-top: 300px;
   top: 0;
   left: 0;
   background: transparent;
   transform: translate3d(0, 0vh, 0);
-  transition: transform .1s cubic-bezier(1,1,0,0);
+  transition: transform .02s cubic-bezier(1,1,0,0);
   z-index: 101;
 }

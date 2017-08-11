@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 import {
 	homeUrl,
 	aboutUrl,
 	projectsUrl
-} from '../constants'
+} from '../../constants'
 
 
-class Menu extends Component {
+class MenuList extends Component {
 	getVisibleState() {
 		if (this.props.visibleState === true) {
 			return 0;
@@ -86,4 +86,4 @@ function mapDispatchToProps(dispatch) {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu)
+export default connect(mapStateToProps, mapDispatchToProps)(MenuList)

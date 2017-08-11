@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ReallySmoothScroll from 'really-smooth-scroll';
 
 import * as actions from '../actions';
-// ReallySmoothScroll.shim();
+
 
 class AboutPage extends Component {
-	constructor() {
-		super()
-	}
+
 
 
 	componentDidMount() {

@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
-import App from './components/app';
+import Menu from './components/Menu';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ProjectsPage from './components/ProjectsPage';
-import FirstProject from './components/projectsPage/project-1';
+import FirstProject from './components/projectsPage/firstProject';
 import configureStore from './store';
 
 import './styles/styles.css';
@@ -25,7 +25,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<div>
-				<App />
+				<Menu />
 				<Switch>
 					<Route path={homeUrl} component={HomePage} />
 					<Route path={aboutUrl} component={AboutPage} />
