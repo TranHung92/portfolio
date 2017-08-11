@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
 
 import * as actions from '../actions';
 
@@ -12,9 +11,7 @@ import MenuButton from './MenuButton'
 import Menu from './Menu'
 import Title from './homePage/title'
 import Image1 from './homePage/image1'
-import {
-	firstProjectUrl
-} from '../constants'
+
 
 var windowHeight = window.innerHeight;
 
@@ -33,21 +30,13 @@ class HomePage extends Component {
 		e.stopPropagation();
 	}
 
-	onWheel (e) {
-		const deltaY = e.wheelDeltaY;
+	onWheel(e) {
+		const deltaY = e.deltaY;
 		if (this.refs.myRef) {
 			if (deltaY > 0) {
-				if (deltaY > 100) {
-					this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 20 : 0 })
-				} else {
-					this.setState({ HomeHeight: this.state.HomeHeight < 0 ? this.state.HomeHeight + windowHeight / 150 : 0 })
-				}
+				this.setState({ HomeHeight: this.state.HomeHeight - deltaY/2 })
 			} else {
-				if (deltaY < -100) {
-					this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 20 })
-				} else {
-					this.setState({ HomeHeight: this.state.HomeHeight - windowHeight / 150 })
-				}
+				this.setState({ HomeHeight: this.state.HomeHeight < deltaY/2 ? this.state.HomeHeight - deltaY/2 : null })
 			}			
 		}
 	}
@@ -77,9 +66,7 @@ class HomePage extends Component {
 		return (
 			<div id="homePage" ref="myRef">
 				<Title height={this.state.HomeHeight} />
-				<Link to={firstProjectUrl}>
-					<Image1 height={this.state.HomeHeight} />									
-				</Link>
+				<Image1 height={this.state.HomeHeight} />									
 				<Background height={this.state.BackgroundHeight} />			
 			</div>				
 		)

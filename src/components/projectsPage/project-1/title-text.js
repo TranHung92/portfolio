@@ -5,7 +5,7 @@ class TitleText extends Component {
 	render() {
 		return (
 			<div>
-				<Motion style={{ x: spring(this.props.height, {stiffness: 170, damping: 26}) }}>
+				<Motion style={{ x: spring(this.props.height, {stiffness: 300, damping: 39}) }}>
 					{ ({ x }) => (
 						<div
 							id="title-text"

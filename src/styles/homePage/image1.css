@@ -1,12 +1,10 @@
 #home-image1 {
   background-color: #EEE;
-  width: 100vw;
-  /*height: 100vh;*/
+  /*width: 100vw;*/
   position: fixed;
   padding-top: 200px;
   top: 0;
   left: 0;
-  /*overflow: auto;*/
   transform: translate3d(0, 0vh, 0);
   transition: transform .1s cubic-bezier(1,1,0,0);
   z-index: 100;
