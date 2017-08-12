@@ -1,0 +1,19 @@
+#project-secondSection-text {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  transform: translate3d(0, 0vh, 0);
+	z-index: 101;
+}
+
+.section2-text {
+  position: absolute;
+  top: 0;
+  background: transparent;
+  transform: translate3d(0, 0vh, 0);
+  transition: transform .02s cubic-bezier(1,1,0,0);
+  z-index: 101;	
+}

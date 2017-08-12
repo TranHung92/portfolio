@@ -33,7 +33,7 @@ const mountedState = {
 	sliderHeight: -100	
 }
 
-class FirstProject extends Component {
+class FirstSection extends Component {
 	constructor() {
 		super();
 		this.state = initialState;
@@ -42,27 +42,15 @@ class FirstProject extends Component {
 	onWheel(e) {
 		const deltaY = e.deltaY;
 		if (this.refs.myRef) {
-			if (deltaY > 0) {
-				this.setState({
-					firstText: this.state.firstText - deltaY/1.5,
-					secondText: this.state.secondText - deltaY/1.6, 
-					thirdText: this.state.thirdText - deltaY/1.7, 
-					fourthText: this.state.fourthText - deltaY/1.8, 
-					fifthText: this.state.fifthText - deltaY/1.9, 
-					containerHeight: this.state.containerHeight - deltaY/2,
-					imageHeight: this.state.imageHeight + deltaY/2.5
-				})
-			} else {
-				this.setState({
-					firstText: this.state.firstText < mountedState.firstText + deltaY/1.5 ? this.state.firstText - deltaY/1.5 : mountedState.firstText,
-					secondText: this.state.secondText < mountedState.secondText + deltaY/1.6 ? this.state.secondText - deltaY/1.6 : mountedState.secondText,
-					thirdText: this.state.thirdText < mountedState.thirdText + deltaY/1.7 ? this.state.thirdText - deltaY/1.7 : mountedState.thirdText,
-					fourthText: this.state.fourthText < mountedState.fourthText + deltaY/1.8 ? this.state.fourthText - deltaY/1.8 : mountedState.fourthText,
-					fifthText: this.state.fifthText < mountedState.fifthText + deltaY/1.9 ? this.state.fifthText - deltaY/1.9 : mountedState.fifthText,
-					containerHeight: this.state.containerHeight < deltaY/2 ? this.state.containerHeight - deltaY/2 : 0,
-					imageHeight: this.state.imageHeight > -deltaY/2.5 ? this.state.imageHeight + deltaY/2.5 : 0
-				})
-			}			
+			this.setState({
+				firstText: this.state.firstText < mountedState.firstText + deltaY/1.5 ? this.state.firstText - deltaY/1.5 : mountedState.firstText,
+				secondText: this.state.secondText < mountedState.secondText + deltaY/1.6 ? this.state.secondText - deltaY/1.6 : mountedState.secondText,
+				thirdText: this.state.thirdText < mountedState.thirdText + deltaY/1.7 ? this.state.thirdText - deltaY/1.7 : mountedState.thirdText,
+				fourthText: this.state.fourthText < mountedState.fourthText + deltaY/1.8 ? this.state.fourthText - deltaY/1.8 : mountedState.fourthText,
+				fifthText: this.state.fifthText < mountedState.fifthText + deltaY/1.9 ? this.state.fifthText - deltaY/1.9 : mountedState.fifthText,
+				containerHeight: this.state.containerHeight < deltaY/2 ? this.state.containerHeight - deltaY/2 : 0,
+				imageHeight: this.state.imageHeight > -deltaY/2.5 ? this.state.imageHeight + deltaY/2.5 : 0
+			})
 		}
 	}
 
@@ -71,8 +59,6 @@ class FirstProject extends Component {
 		window.addEventListener('wheel', this.onWheel.bind(this))	
 		setTimeout(this.props.loadPage.bind(this.props.isLoaded), 1500)
 	}
-
-
 
 	render() {
 		return (
@@ -109,4 +95,4 @@ function mapStateToProps(state) {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FirstProject);
+export default connect(mapStateToProps, mapDispatchToProps)(FirstSection);
