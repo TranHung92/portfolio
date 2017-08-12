@@ -10,14 +10,13 @@
 	width: 100vw;
 	top: 0;
 	left: 0;
-  z-index: 100;
   position: fixed;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   transform: translate3d(0, 0vh, 0);
-  transition: transform .02s cubic-bezier(1,1,0,0);
+  transition: transform 1s cubic-bezier(1,1,0,0);
 }
 
 #background img {
@@ -30,13 +29,23 @@
   transition: transform .02s cubic-bezier(1,1,0,0);
 }
 
-#title-text {
-  position: fixed;
+.title-text {
+  position: absolute;
   color: white;
   top: 0;
-  left: 0;
   background: transparent;
   transform: translate3d(0, 0vh, 0);
   transition: transform .02s cubic-bezier(1,1,0,0);
   z-index: 101;
+}
+
+#project-firstSection-text {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  transform: translate3d(0, 0vh, 0);
+	z-index: 101;
 }

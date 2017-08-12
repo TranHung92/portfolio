@@ -4,8 +4,12 @@ export {
 	resetMenuIndex,
 	setMenuIndex,
 	hideMenu
-} from './MenuButton'
+} from './menu'
 
 export {
 	getParams
 } from './route'
+
+export {
+	loadPage,
+} from './page'
