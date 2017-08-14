@@ -1,8 +1,11 @@
 #project-secondSection-text {
 	height: 100vh;
-	width: 100vw;
+	width: 50vw;
+	top: 0;
+	left: 0;
 	position: fixed;
 	display: flex;
+	/*background-color: green;*/
 	justify-content: center;
 	align-items: center;
   transform: translate3d(0, 0vh, 0);
@@ -16,4 +19,21 @@
   transform: translate3d(0, 0vh, 0);
   transition: transform .02s cubic-bezier(1,1,0,0);
   z-index: 101;	
+}
+
+.mockup {
+	height: 50vh;
+	width: 50vw;
+	right: 0;
+	position: fixed;
+	background-color: red;
+	transform: translate3d(0,0,0);
+  transition: transform .02s cubic-bezier(1,1,0,0);
+	z-index: 1000;
+}
+
+.mockup img {
+	position: absolute;
+	transform: translate3d(0,0,0);
+	transition: transform .02s cubic-bezier(1,1,0,0);
 }

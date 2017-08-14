@@ -11,6 +11,8 @@ const initialState = {
 	firstText: windowHeight + 350,
 	secondText: windowHeight + 450,
 	thirdText: windowHeight + 550,
+	mockupWidth: 0,
+	mockupHeight: windowHeight,
 }
 
 class SecondSection extends Component {
@@ -20,20 +22,29 @@ class SecondSection extends Component {
 	}
 
 	onWheel(e) {
-		const deltaY = e.deltaY;
-		const minDistance = this.state.secondText - this.state.firstText
+		var deltaY = e.deltaY;
+		var firstTextSpeed, secondTextSpeed, thirdTextSpeed;
+		var minDistance = this.state.secondText - this.state.firstText
+		if (this.state.secondText >= windowHeight/2) {
+			firstTextSpeed = deltaY/1.7;
+			secondTextSpeed = deltaY/1.6;
+			thirdTextSpeed = deltaY/1.5;
+		} else {
+			firstTextSpeed = deltaY/1.5;
+			secondTextSpeed = deltaY/1.6;
+			thirdTextSpeed = deltaY/1.7;			
+		}
+
 		if (this.refs.section2) {
-			this.state.secondText > windowHeight/2 ?
 			this.setState({
-				firstText: this.state.firstText - deltaY/1.7,
-				secondText: this.state.secondText - deltaY/1.6, 
-				thirdText: this.state.thirdText - deltaY/1.5,
-			}) :
-			this.setState({
-				firstText: this.state.firstText - deltaY/1.5,
-				secondText: this.state.secondText - deltaY/1.6, 
-				thirdText: this.state.thirdText - deltaY/1.7,
-			})				
+				firstText: this.state.firstText - firstTextSpeed,
+				secondText: this.state.secondText - secondTextSpeed, 
+				thirdText: this.state.thirdText - thirdTextSpeed,
+				mockupHeight: this.state.mockupHeight - deltaY/2,
+			})
+			if (this.state.firstText < windowHeight) {
+				this.setState({ mockupWidth: 0 })
+			}	
 		}
 
 	}
@@ -50,7 +61,10 @@ class SecondSection extends Component {
 					secondText={this.state.secondText}
 					thirdText={this.state.thirdText}
 				/>
-				<Mockup />
+				<Mockup 
+					mockupWidth={this.state.mockupWidth} 
+					mockupHeight={this.state.mockupHeight}
+				/>
 			</div>
 		)
 	}
