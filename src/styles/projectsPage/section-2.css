@@ -37,3 +37,8 @@
 	transform: translate3d(0,0,0);
 	transition: transform .02s cubic-bezier(1,1,0,0);
 }
+
+.mockup h1 {
+	width: 50%;
+	background-color: green;
+}
