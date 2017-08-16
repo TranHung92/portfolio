@@ -10,9 +10,8 @@ class Text extends Component {
 			fourthText, 
 			fifthText
 		} = this.props;
-
+		console.log('firstText', firstText)
 		return (
-			<div>
 				<Motion style={{ 
 					a: spring(firstText, {stiffness: 300, damping: 39}),
 					b: spring(secondText, {stiffness: 300, damping: 39}),
@@ -21,7 +20,7 @@ class Text extends Component {
 					e: spring(fifthText, {stiffness: 300, damping: 39}),
 				}}>
 					{ ({ a, b, c, d, e }) => (
-						<div id="project-firstSection-text">
+						<div className="project-firstSection-text">
 							<h1 
 								className="title-text"
 								style={{ transform: `translate3d(0, ${a}px, 0)` }}
@@ -54,9 +53,7 @@ class Text extends Component {
 							</h1>							
 						</div>	
 					)}			
-				</Motion>					
-			</div>
-
+				</Motion>	
 		)
 	}
 }
