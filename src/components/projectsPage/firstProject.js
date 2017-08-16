@@ -35,6 +35,7 @@ class FirstProject extends Component {
 			this.setFirstSectionState(delta);
 			this.setSecondSectionState(delta);
 		}
+		console.log('scrollY', this.state.scrollY)
 	}
 
 	setFirstSectionState(delta) {
@@ -58,7 +59,7 @@ class FirstProject extends Component {
 
 	setSecondSectionState(delta) {
 		var firstTextSpeed, secondTextSpeed, thirdTextSpeed;
-		if (this.state.secondSection.secondText >= window.innerHeight/2) {
+		if (this.state.firstSection.secondText >= window.innerHeight/2) {
 			firstTextSpeed = delta/1.7;
 			secondTextSpeed = delta/1.6;
 			thirdTextSpeed = delta/1.5;

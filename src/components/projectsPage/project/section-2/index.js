@@ -25,7 +25,7 @@ class SecondSection extends Component {
 		var deltaY = e.deltaY;
 		var firstTextSpeed, secondTextSpeed, thirdTextSpeed;
 		var minDistance = this.state.secondText - this.state.firstText
-		if (this.state.secondText >= windowHeight/2) {
+		if (this.state.firstText >= windowHeight/2) {
 			firstTextSpeed = deltaY/1.7;
 			secondTextSpeed = deltaY/1.6;
 			thirdTextSpeed = deltaY/1.5;
@@ -55,7 +55,6 @@ class SecondSection extends Component {
 
 	render() {
 		const { secondSection } = this.props;
-		console.log('secondSection', secondSection)
 		return (
 			<div className="section-2" ref="section2">
 				<Text 
