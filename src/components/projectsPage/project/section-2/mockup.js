@@ -13,7 +13,7 @@ class Mockup extends Component {
 						className="mockup"
 						style={{ transform: `translate3d(0, ${y}px, 0)` }}
 					>
-						<h1>hello</h1>
+						<h1>mockup</h1>
 					</div>
 				)}
 			</Motion>

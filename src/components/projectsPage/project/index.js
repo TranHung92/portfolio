@@ -4,18 +4,22 @@ import { Motion, spring } from 'react-motion';
 import FirstSection from './section-1'
 import SecondSection from './section-2'
 
-import '../../../styles/projectsPage/projectx.css'
+import '../../../styles/projectsPage/section-1.css'
+import '../../../styles/projectsPage/section-2.css'
+
 
 class Project extends Component {
 	render() {
 		const { 
 			scrollY, 
-			background,
-			firstText,
-			secondText,
-			thirdText,
-			fourthText,
-			fifthText } = this.props;
+			firstSection,
+			secondSection, 
+		} = this.props;
+
+		const style={
+			height: "100vh",
+			width: "100vw",
+		}		
 		return (
 			<Motion style={{ x: spring(scrollY, {stiffness: 300, damping: 39}) }}>
 				{ ({x}) => (
@@ -23,15 +27,19 @@ class Project extends Component {
 						className="projectX"
 						style={{ transform: `translate3d(0, ${x}px, 0)` }}
 					>
-						<FirstSection 
-							background={background} 
-							firstText={firstText}
-							secondText={secondText}
-							thirdText={thirdText}
-							fourthText={fourthText}
-							fifthText={fifthText}
-						/>
-						<h1 style={{ paddingTop: "100vh" }}>section-2</h1>
+						<div style={style}>
+							<FirstSection 
+								firstSection={firstSection}
+							/>
+						</div>
+						<div style={style}>
+							<SecondSection 
+								secondSection={secondSection}
+							/>
+						</div>
+						<div style={style}>
+							<h1>section-3</h1>
+						</div>
 					</div>
 				)}
 			</Motion>

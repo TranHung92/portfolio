@@ -1,49 +1,27 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
-import Slider from '../../../Slider';
 import Background from './background';
 import Text from './text';
-import * as actions from '../../../../actions'; 
 
 class FirstSection extends Component {
 	render() {
-		const { 
-			background,
-			firstText,
-			secondText,
-			thirdText,
-			fourthText,
-			fifthText,
-		} = this.props;
+		const { firstSection } = this.props;
 		return (
 			<div className="section-1" ref="myRef">
 				<Background 
-					background={background}
+					background={firstSection.background}
 				/>
 				<Text 
-					firstText={firstText}
-					secondText={secondText}
-					thirdText={thirdText}
-					fourthText={fourthText}
-					fifthText={fifthText}
+					firstText={firstSection.firstText}
+					secondText={firstSection.secondText}
+					thirdText={firstSection.thirdText}
+					fourthText={firstSection.fourthText}
+					fifthText={firstSection.fifthText}
 				/>
 			</div>	
 		)
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		loadPage: bindActionCreators(actions.loadPage, dispatch),
-	}
-}
 
-function mapStateToProps(state) {
-	return {
-		isLoaded: state.page.isLoaded
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FirstSection);
+export default FirstSection;

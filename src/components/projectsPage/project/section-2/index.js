@@ -54,17 +54,16 @@ class SecondSection extends Component {
 	}
 
 	render() {
+		const { secondSection } = this.props;
+		console.log('secondSection', secondSection)
 		return (
-			<div id="section-2" ref="section2">
+			<div className="section-2" ref="section2">
 				<Text 
-					firstText={this.state.firstText}
-					secondText={this.state.secondText}
-					thirdText={this.state.thirdText}
+					firstText={secondSection.firstText}
+					secondText={secondSection.secondText}
+					thirdText={secondSection.thirdText}
 				/>
-				<Mockup 
-					mockupWidth={this.state.mockupWidth} 
-					mockupHeight={this.state.mockupHeight}
-				/>
+				<Mockup />
 			</div>
 		)
 	}

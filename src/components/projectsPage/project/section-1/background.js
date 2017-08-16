@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Motion, spring } from 'react-motion';
-import { connect } from 'react-redux';
 
 class Background extends Component {
 	render() {
@@ -22,10 +21,5 @@ class Background extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		isLoaded: state.page.isLoaded
-	}
-}
 
-export default connect(mapStateToProps)(Background);
+export default Background;
