@@ -18,6 +18,8 @@ const initialState = {
 		firstText: 700,
 		secondText: 700,
 		thirdText: 700,
+		mockupWidth: 700,
+		mockupHeight: 0,
 	}
 };
 
@@ -78,10 +80,10 @@ class FirstProject extends Component {
 					firstText: this.state.secondSection.firstText - firstTextSpeed,
 					secondText: this.state.secondSection.secondText - secondTextSpeed,
 					thirdText: this.state.secondSection.thirdText - thirdTextSpeed,
+					mockupWidth: scrollY < -windowHeight/12 ? 0 : initialState.secondSection.mockupWidth,
 				}
 			})
 		}
-
 	}
 
 	componentDidMount() {

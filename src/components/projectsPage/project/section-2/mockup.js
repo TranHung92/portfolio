@@ -3,21 +3,42 @@ import { Motion, spring } from 'react-motion';
 
 class Mockup extends Component {
 	render() {
-		return (
-			<Motion style={{ 
-				x: spring(this.props.mockupWidth, {stiffness: 300, damping: 39}), 
-				y: spring(this.props.mockupHeight, {stiffness: 300, damping: 39})
-			}}>
-				{ ({ x, y }) => (
-					<div 
-						className="mockup"
-						style={{ transform: `translate3d(0, ${y}px, 0)` }}
-					>
-						<h1>mockup</h1>
+		const { mockupWidth, mockupHeight } = this.props;
+		console.log(this.props)
+		// return (
+		// 	<Motion style={{ 
+		// 		x: spring(mockupWidth, {stiffness: 300, damping: 39}), 
+		// 		y: spring(mockupHeight, {stiffness: 300, damping: 39})
+		// 	}}>
+		// 		{ ({ x, y }) => (
+		// 			<div 
+		// 				className="mockup"
+		// 			>
+		// 				<div>
+		// 					<img 
+		// 						style={{ transform: `translate3d(${x}px, ${y}px, 0)` }}
+		// 						src={require('../../../../assets/mockup.jpg')} alt=""
+		// 					/>						
+		// 				</div>
+		// 			</div>
+		// 		)}
+		// 	</Motion>
+		// )
+			return (
+				<div 
+					className="mockup"
+				>
+					<div>
+						<img 
+							style={{ 
+								transform: `translate3d(${this.props.mockupWidth}px, 0px, 0)`, 
+								transition: 'transform 2s cubic-bezier(.36,.84,.3,1)'
+							}}
+							src={require('../../../../assets/mockup.jpg')} alt=""
+						/>						
 					</div>
-				)}
-			</Motion>
-		)
+				</div>
+			)
 	}
 }
 

@@ -17,13 +17,10 @@
 	align-items: center;
 }
 
-.section2-text {
-	/*position: absolute;*/
-	color: white;
-}
-
 .mockup {
 	background-color: green;
 	width: 60%;
 	height: 100%;
+	display: flex;
+	align-items: center;
 }
