@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Project from './project'
 
+var windowHeight = window.innerHeight;
 
 const initialState = {
 	scrollY: 0,
@@ -14,11 +15,12 @@ const initialState = {
 		fifthText: 0		
 	},
 	secondSection: {
-		firstText: 0,
-		secondText: 0,
-		thirdText: 0,
+		firstText: 700,
+		secondText: 700,
+		thirdText: 700,
 	}
-}
+};
+
 
 class FirstProject extends Component {
 	constructor() {
@@ -35,7 +37,7 @@ class FirstProject extends Component {
 			this.setFirstSectionState(delta);
 			this.setSecondSectionState(delta);
 		}
-		console.log('scrollY', this.state.scrollY)
+		// console.log('scrollY', this.state.scrollY)
 	}
 
 	setFirstSectionState(delta) {
@@ -58,23 +60,28 @@ class FirstProject extends Component {
 	}
 
 	setSecondSectionState(delta) {
+		const { scrollY } = this.state;
 		var firstTextSpeed, secondTextSpeed, thirdTextSpeed;
-		if (this.state.firstSection.secondText >= window.innerHeight/2) {
-			firstTextSpeed = delta/1.7;
-			secondTextSpeed = delta/1.6;
-			thirdTextSpeed = delta/1.5;
-		} else {
-			firstTextSpeed = delta/1.5;
-			secondTextSpeed = delta/1.6;
-			thirdTextSpeed = delta/1.7;			
-		}
-		this.setState({
-			secondSection: {
-				firstText: this.state.secondSection.firstText - firstTextSpeed,
-				secondText: this.state.secondSection.secondText - secondTextSpeed,
-				thirdText: this.state.secondSection.thirdText - thirdTextSpeed,
+			if (scrollY > -windowHeight) {
+				firstTextSpeed = delta/2.3;
+				secondTextSpeed = delta/2.2;
+				thirdTextSpeed = delta/2.1;
+			} else {
+				firstTextSpeed = delta/2.1;
+				secondTextSpeed = delta/2.2;
+				thirdTextSpeed = delta/2.3;			
 			}
-		})
+	
+		if (scrollY < 0 && (scrollY > (-2 * windowHeight))) {
+			this.setState({
+				secondSection: {
+					firstText: this.state.secondSection.firstText - firstTextSpeed,
+					secondText: this.state.secondSection.secondText - secondTextSpeed,
+					thirdText: this.state.secondSection.thirdText - thirdTextSpeed,
+				}
+			})
+		}
+
 	}
 
 	componentDidMount() {
