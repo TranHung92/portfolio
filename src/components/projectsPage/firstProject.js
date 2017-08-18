@@ -15,11 +15,11 @@ const initialState = {
 		fifthText: 0		
 	},
 	secondSection: {
-		firstText: 700,
-		secondText: 700,
-		thirdText: 700,
+		firstText: 300,
+		secondText: 300,
+		thirdText: 300,
 		mockupWidth: 700,
-		mockupHeight: 0,
+		mockupHeight: 100,
 	}
 };
 
@@ -77,10 +77,11 @@ class FirstProject extends Component {
 		if (scrollY < 0 && (scrollY > (-2 * windowHeight))) {
 			this.setState({
 				secondSection: {
-					firstText: this.state.secondSection.firstText - firstTextSpeed,
-					secondText: this.state.secondSection.secondText - secondTextSpeed,
-					thirdText: this.state.secondSection.thirdText - thirdTextSpeed,
+					firstText: this.state.secondSection.firstText - firstTextSpeed/2,
+					secondText: this.state.secondSection.secondText - secondTextSpeed/2,
+					thirdText: this.state.secondSection.thirdText - thirdTextSpeed/2,
 					mockupWidth: scrollY < -windowHeight/12 ? 0 : initialState.secondSection.mockupWidth,
+					mockupHeight: this.state.secondSection.mockupHeight - delta/20,
 				}
 			})
 		}
