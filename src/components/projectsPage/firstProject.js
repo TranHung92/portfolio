@@ -31,6 +31,7 @@ class FirstProject extends Component {
 	}
 
 	onWheel(e) {
+		console.log('window', window.screenY)
 		const delta = e.deltaY;
 		if (this.refs.myRef) {
 			this.setState({

@@ -4,7 +4,6 @@ import { Motion, spring } from 'react-motion';
 class Mockup extends Component {
 	render() {
 		const { mockupWidth, mockupHeight } = this.props;
-		console.log(this.props)
 		return (
 			<Motion style={{ 
 				x: spring(mockupWidth, {stiffness: 300, damping: 39}), 
